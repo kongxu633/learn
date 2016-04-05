@@ -16,5 +16,6 @@ return array(
     /* 调试信息 */
     //'SHOW_PAGE_TRACE'       =>  true,
     
-    
+    'LOAD_EXT_CONFIG'       => 'verify',
+
 );

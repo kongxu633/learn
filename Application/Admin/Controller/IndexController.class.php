@@ -6,4 +6,10 @@ class IndexController extends CommonController {
         $this->display();
   
     }
+    
+    public function logout(){
+        session_unset();
+        session_destroy();
+        $this->redirect(MODULE_NAME . '/Login/index');
+    }
 }

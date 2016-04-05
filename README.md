@@ -30,3 +30,16 @@ function p($array){
     dump($array,1,'<pre>',0);
 }
 
+
+
+#知识点
+http://www.thinkphp.cn/code/367.html
+http://www.52codes.net/article/881.html
+
+_initialize() 为thinkphp封装的函数,__construct 为PHP的构造函数，_initialize就是为了避免我们频繁调用 parent::__construct();
+
+换句话说：调用之类_initialize()的同时也会调用父类的构造函数 __construct() ,但是不能调用父类的_initialize
+
+如果想调用父类的_initialize()，则还是需要在之类的_initialize里面加上 parent::_initialize()
+
+__construct为PHP类的构造函数,调用子类的构造函数会覆盖父类的构造函数。同时调用则还是需要调用 parent::__construct();
