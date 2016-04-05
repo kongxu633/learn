@@ -26,3 +26,26 @@ CREATE TABLE IF NOT EXISTS `le_user` (
 
 INSERT INTO `le_user` (`id`, `username`, `password`, `logintime`, `loginip`, `status`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1459671392, '127.0.0.1', 1);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `le_cate`
+--
+
+CREATE TABLE IF NOT EXISTS `le_cate` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL DEFAULT '',
+  `pid` int(10) unsigned NOT NULL DEFAULT '0',
+  `sort` smallint(6) NOT NULL DEFAULT '100',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_unique` (`name`),
+  KEY `pid_index` (`pid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `le_cate`
+--
+
+INSERT INTO `le_cate` (`id`, `name`, `pid`, `sort`) VALUES
+(1, '顶级分类1', 0, 100);
