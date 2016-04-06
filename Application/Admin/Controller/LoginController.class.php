@@ -60,6 +60,14 @@ class LoginController extends Controller {
             'useCurve'=>false,
             'codeSet'=>'8'
         ];
+        
+        $user_config = [
+            'codeSet' => C('VERIFY_SEED'),
+            'setKey' => C('VERIFY_KEY')
+        ];
+        
+        $config = array_merge($config,$user_config);
+        
         $verify = new \Think\Verify($config);
         $verify->entry();
         
