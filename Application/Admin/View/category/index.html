@@ -18,7 +18,7 @@
 		   <foreach name="list" item="v">
 				<tr>
 				   <td>{$v.id}</td>
-				   <td><if condition="$v.level eq 1"><b>{$v.name}</b><else/>{$v.title}{$v.name}</if></td>
+				   <td>{$v.prefix}{$v.name}</td>
 				   <td>{$v.level}</td>
 				   <td>
 				      <input type="text" name="{$v.id}" value="{$v.sort}" />

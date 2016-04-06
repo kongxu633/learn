@@ -109,3 +109,8 @@ http://www.thinkphp.cn/code/472.html
     }
  }
  ?>
+ 
+ 
+ #知识点
+ 
+关联模型

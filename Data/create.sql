@@ -76,3 +76,38 @@ INSERT INTO `le_attr` (`id`, `name`, `color`) VALUES
 (1, '置顶', '#ffff00'),
 (2, '推荐', '#ff0000'),
 (3, '精华', '#00ff00');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `le_article`
+--
+
+CREATE TABLE IF NOT EXISTS `le_article` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL DEFAULT '',
+  `content` text,
+  `time` int(10) unsigned NOT NULL DEFAULT 0,
+  `click` smallint(6) unsigned NOT NULL DEFAULT 0,
+  `cid` int(10) unsigned NOT NULL,
+  `del` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title_unique` (`title`),
+  KEY `title_index` (`title`),
+  KEY `cid_index` (`cid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `le_article_attr`
+--
+
+CREATE TABLE IF NOT EXISTS `le_article_attr` (
+  `art_id` int(10) unsigned NOT NULL,
+  `attr_id` int(10) unsigned NOT NULL,
+  KEY `art_id` (`art_id`),
+  KEY `attr_id` (`attr_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

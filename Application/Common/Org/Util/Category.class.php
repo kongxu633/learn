@@ -24,7 +24,11 @@ namespace Common\Org\Util;
             if($value['pid']==$pid){
                 $value['level'] = $count;
                 //对标题进行格式化
-                $value['title'] = str_repeat('&nbsp;&nbsp;', $count).'├─ '.$value['title'];
+                if(1 === $count){
+                    $value['name'] = '<b>'.$value['name'].'</b>';
+                } else{
+                    $value['prefix'] = str_repeat('&nbsp;&nbsp;', $count).'├─ '.$value['prefix'];
+                }
                 self::$treeList [] = $value;
                 unset($data[$key]);
                 self::tree($data,$value['id'],$count + 1);
