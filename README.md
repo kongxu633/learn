@@ -4,6 +4,8 @@ Nginx 1.6.2
 Php 5.5.7n
 ThinkPHP 3.2.3
 
+数组统一用方括号表示
+
 学习开发博客项目 建立通用后台
 
 config.php
@@ -43,3 +45,67 @@ _initialize() 为thinkphp封装的函数,__construct 为PHP的构造函数，_in
 如果想调用父类的_initialize()，则还是需要在之类的_initialize里面加上 parent::_initialize()
 
 __construct为PHP类的构造函数,调用子类的构造函数会覆盖父类的构造函数。同时调用则还是需要调用 parent::__construct();
+
+
+
+
+#知识点
+http://www.thinkphp.cn/code/472.html
+
+3.2版本加入了命名空间，import的用法也有所影响，给大家一个例子。
+先定义一个自定义类（存放路径为Application\Common\ORG\Util\MyClass.class.php），代码如下：
+用法1：
+<?php
+ // 没有声明命名空间
+ class MyClass
+ {
+    //
+ }
+ ?>
+ 使用import导入类，代码如下：
+ <?php
+ namespace Home\Controller;
+ use Think\Controller;
+ class IndexController extends Controller
+ {
+    public function index(){
+        import('Common/ORG/Util/MyClass');
+        $MyClass    = new \MyClass();
+        dump($MyClass);
+    }
+ }
+ ?>
+ 用法2：
+ <?php
+ // 声明命名空间
+ namespace Common\ORG\Util;
+ class MyClass
+ {
+    //
+ }
+ ?>
+ 利用命名空间直接导入，代码如下：
+ <?php
+ namespace Home\Controller;
+ use Think\Controller;
+ class IndexController extends Controller
+ {
+    public function index(){
+        $MyClass    = new \Common\ORG\Util\MyClass();
+        dump($MyClass);
+    }
+ }
+ ?>
+ 或者
+ <?php
+ namespace Home\Controller;
+ use Think\Controller;
+ use Common\ORG\Util\MyClass;
+ class IndexController extends Controller
+ {
+    public function index(){
+        $MyClass    = new MyClass();
+        dump($MyClass);
+    }
+ }
+ ?>

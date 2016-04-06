@@ -6,23 +6,36 @@
 <css file="__PUBLIC__/Css/public.css" />
 </head>
 <body>
-<table class="table">
-<tr>
-    <th>ID</th>
-    <th>名称</th>
-    <th>级别</th>
-    <th>排序</th>
-    <th>操作</th>
-</tr>
-   <foreach name="cate" item="v">
+	<form action="{:U(MODULE_NAME.'/Category/sortCate')}" method="post">
+		<table class="table">
 		<tr>
-		   <td>{$v.id}</td>
-		   <td>{$v.name}</td>
-		   <td>{$v.pid}</td>
-		   <td>{$v.sort}</td>
-		   <td>[添加子分类][修改][删除]</td>
+		    <th>ID</th>
+		    <th>名称</th>
+		    <th>级别</th>
+		    <th>排序</th>
+		    <th>操作</th>
 		</tr>
-   </foreach>
-</table>
+		   <foreach name="list" item="v">
+				<tr>
+				   <td>{$v.id}</td>
+				   <td><if condition="$v.level eq 1"><b>{$v.name}</b><else/>{$v.title}{$v.name}</if></td>
+				   <td>{$v.level}</td>
+				   <td>
+				      <input type="text" name="{$v.id}" value="{$v.sort}" />
+		            </td>
+				   <td>
+				      [<a href="{:U(MODULE_NAME.'/Category/addCate',array('pid'=>$v['id']))}">添加子分类</a>]
+				      [<a href="">修改</a>]
+				      [<a href="">删除</a>]
+				   </td>
+				</tr>
+		   </foreach>
+			   <tr>
+			        <td colspan="5" align="center">
+			            <input type="submit" value="排序" />
+			        </td>
+			   </tr>
+		</table>
+	</form>
 </body>
 </html>

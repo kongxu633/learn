@@ -41,11 +41,14 @@ CREATE TABLE IF NOT EXISTS `le_cate` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_unique` (`name`),
   KEY `pid_index` (`pid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `le_cate`
 --
 
 INSERT INTO `le_cate` (`id`, `name`, `pid`, `sort`) VALUES
-(1, '顶级分类1', 0, 100);
+(1, '顶级分类1', 0, 3),
+(2, '顶级分类2', 0, 1),
+(3, '子分类1-1', 1, 4),
+(4, '子分类1-2', 1, 2);
