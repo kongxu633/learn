@@ -24,8 +24,13 @@
             <td>{$v.click}</td>
             <td>{$v.time|date="Y-m-d H:i:s",###}</td>
             <td>
+            <if condition='ACTION_NAME eq "index"'>
                 [<a href="#">修改</a>]
-                [<a href="#">删除</a>]
+                [<a href="{:U(MODULE_NAME.'/Article/toTrach',array('id'=>$v['id'],'del'=>1))}">删除</a>]
+            <else/>
+                [<a href="{:U(MODULE_NAME.'/Article/toTrach',array('id'=>$v['id'],'del'=>0))}">还原</a>]
+                [<a href="{:U(MODULE_NAME.'/Article/delete',array('id'=>$v['id']))}">彻底删除</a>]
+            </if>
             </td>
         </tr>
         </foreach>

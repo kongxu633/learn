@@ -25,5 +25,11 @@ class ArticleModel extends RelationModel{
         )
 
     );
+    
+    
+    public function getArticle($type = 0){
+        $where = ['del' => $type];
+        return $this->where($where)->relation(true)->select();
+    }
 
 }

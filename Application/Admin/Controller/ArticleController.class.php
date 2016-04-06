@@ -2,12 +2,42 @@
 namespace Admin\Controller;
 use Common\Org\Util\Category;
 class ArticleController extends CommonController {
+    
+    // 显示全部文章
     public function index(){
-        $where = ['del' => 0];
-        $art = D('article');
-        $art = $art->where($where)->relation(true)->select();
-        $this->art = $art;
+        $this->art = D('article')->getArticle();
         $this->display();
+    }
+
+    // 显示回收站文章
+    public function trach(){
+        $this->art = D('article')->getArticle(1);
+        $this->display('index');
+    }
+    
+    // 软删除文章
+    public function toTrach(){
+       $del = I('del',0,'intval');
+       $msg = $del ? '移入回收站' : '还原';
+       $update = [
+           'id' => I('id'),
+           'del'=> $del,
+       ];
+       if(M('article')->save($update)){
+           $this->success($msg.'成功');
+       } else {
+           $this->error($msg.'失败');
+       }
+    }
+    
+    public function delete(){
+        $id = I('id');
+        $result = D('article')->relation('attr')->delete($id);
+        if($result){
+            $this->success('彻底删除成功',U(MODULE_NAME.'/Article/trach'));
+        } else {
+            $this->error('彻底删除失败');
+        }
     }
     
     public function addArt(){
