@@ -52,3 +52,27 @@ INSERT INTO `le_cate` (`id`, `name`, `pid`, `sort`) VALUES
 (2, '顶级分类2', 0, 1),
 (3, '子分类1-1', 1, 4),
 (4, '子分类1-2', 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `le_attr`
+--
+
+CREATE TABLE IF NOT EXISTS `le_attr` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL DEFAULT '',
+  `color` varchar(10) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_unique` (`name`),
+  KEY `name_index` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `le_attr`
+--
+
+INSERT INTO `le_attr` (`id`, `name`, `color`) VALUES
+(1, '置顶', '#ffff00'),
+(2, '推荐', '#ff0000'),
+(3, '精华', '#00ff00');
