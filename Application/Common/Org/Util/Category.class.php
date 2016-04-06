@@ -27,7 +27,7 @@ namespace Common\Org\Util;
                 if(1 === $count){
                     $value['name'] = '<b>'.$value['name'].'</b>';
                 } else{
-                    $value['prefix'] = str_repeat('&nbsp;&nbsp;', $count).'├─ '.$value['prefix'];
+                    $value['prefix'] = str_repeat('&nbsp;', $count).'├─ '.$value['prefix'];
                 }
                 self::$treeList [] = $value;
                 unset($data[$key]);

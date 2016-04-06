@@ -1,1 +1,1 @@
-<?php	return array ( 'VERIFY_SEED' => '3456', );?>
+<?php	return array ( 'VERIFY_SEED' => '8', );?>
