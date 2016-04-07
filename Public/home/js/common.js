@@ -1,14 +1,20 @@
 $(function () {
+
+  var data = [];
+  data['type'] = 'popup';
+  
   /*=== Popup ===*/
-  var myPhotoBrowserPopup = $.photoBrowser({
-      photos : [
-          '//img.alicdn.com/tps/i3/TB1kt4wHVXXXXb_XVXX0HY8HXXX-1024-1024.jpeg',
-          '//img.alicdn.com/tps/i1/TB1SKhUHVXXXXb7XXXX0HY8HXXX-1024-1024.jpeg',
-          '//img.alicdn.com/tps/i4/TB1AdxNHVXXXXasXpXX0HY8HXXX-1024-1024.jpeg',
-      ],
-      type: 'popup'
-  });
   $(document).on('click','.link',function () {
-    myPhotoBrowserPopup.open();
+	data['photos'] = [];
+	$(this).siblings("i").each(function(){
+		data['photos'].push( $(this).text() );
+	});
+	if(data['photos'].length>0){
+		$.photoBrowser(data).open();
+	}
   });
+  
+  /*=== highlight ===*/
+  $('.tab-item[href="'+current_url+'"]').addClass('active');
+  
 });
