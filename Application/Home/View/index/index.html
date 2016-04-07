@@ -11,9 +11,13 @@
           </div>
         </div>
         <div class="card-footer">
-          <a href="#" class="color-gray">{$v.time|timer=###}</a>
-          <a href="#" class="link">图片</a>
-          <a href="#">{$v.cate}</a>
+		      <a href="#" class="color-gray">{$v.time|timer=###}</a>
+		      <a href="#" class="link">查看图片</a>
+		      <a href="{:U(MODULE_NAME.'/Index/getArticle',array('cid'=>$v['cid']))}">{$v.cate}</a>
+		      <foreach name="pic" item="p">
+		      <i>{$p.name}</i>
+		      </foreach>
+		      
         </div>
       </div>
       </foreach>
