@@ -7,4 +7,15 @@ class IndexController extends Controller {
         //p($art);
         $this->assign('art',$art)->display();
     }
+    
+    public function getArticle(){
+        $cid = I('cid',0,'intval');
+        $cate = M('cate')->where(array('id'=>$cid))->find();
+        $this->assign('cate',$cate);
+        
+        $art = D('article')->getCateArticle($cid);
+        $this->assign('art',$art);
+        
+        $this->display();
+    }
 }

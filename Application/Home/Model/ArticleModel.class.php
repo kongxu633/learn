@@ -27,8 +27,13 @@ class ArticleModel extends RelationModel{
     );
     
     
-    public function getArticle($type = 0){
-        $where = ['del' => $type];
+    public function getArticle($del = 0){
+        $where = ['del' => $del];
+        return $this->where($where)->relation(true)->order('time DESC')->select();
+    }
+    
+    public function getCateArticle($cid = 0){
+        $where = ['cid' => $cid , 'del' => 0];
         return $this->where($where)->relation(true)->order('time DESC')->select();
     }
 

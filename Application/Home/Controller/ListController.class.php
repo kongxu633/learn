@@ -3,8 +3,13 @@ namespace Home\Controller;
 use Think\Controller;
 class ListController extends Controller {
     public function index(){
-        $art = D('article')->getArticle();
-        //p($art);
-        $this->assign('art',$art)->display();
+        $cate = M('cate')->where('pid > 0')->select();
+        
+        foreach ($cate as $k=>$v){
+            $where = ['cid'=>$v['id']];
+            $cate[$k]['num'] = M('article')->where($where)->count();
+        }
+
+        $this->assign('cate',$cate)->display();
     }
 }
