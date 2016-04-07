@@ -24,7 +24,9 @@
 				      <input type="text" name="{$v.id}" value="{$v.sort}" />
 		            </td>
 				   <td>
+				      <eq name="v.level" value="1">
 				      [<a href="{:U(MODULE_NAME.'/Category/addCate',array('pid'=>$v['id']))}">添加子分类</a>]
+				      </eq>
 				      [<a href="">修改</a>]
 				      [<a href="">删除</a>]
 				   </td>

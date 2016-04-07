@@ -20,7 +20,7 @@ option b{font-weight:blod;}
                 <select name="cid">
                     <option value="">===请选择分类===</option>
                     <foreach name="cate" item="v">
-                    <option value="{$v.id}">{$v.prefix}{$v.name}</option>
+                    <option value="{$v.id}" <eq name="v.level" value="1">disabled="disabled"</eq> >{$v.prefix}{$v.name}</option>
                     </foreach>
                 </select>
             </td>
