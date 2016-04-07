@@ -20,14 +20,18 @@ CREATE TABLE IF NOT EXISTS `le_article` (
   UNIQUE KEY `title_unique` (`title`),
   KEY `title_index` (`title`),
   KEY `cid_index` (`cid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- 转存表中的数据 `le_article`
 --
 
 INSERT INTO `le_article` (`id`, `title`, `content`, `time`, `click`, `cid`, `del`) VALUES
-(1, '本人有闲置厂房出租', '1000平方米 靠近繁华地段 交通方便 联系电话123456789', 1459934106, 160, 3, 0);
+(1, '本人有闲置厂房出租', '1000平方米厂房出租 靠近繁华地段 交通方便 联系电话123456789', 1459934106, 160, 3, 0),
+(2, '招收美工', '招收美工数名联系电话15962853555', 1460016031, 100, 5, 0),
+(3, '办公室出租', '家纺城B城中国银行楼上，面积96平方米，120平方米，可分租广告位25米，地理位置佳，电话18752885358', 1460016104, 100, 4, 0),
+(4, '单身公寓有房出租', '被城北路梦妮莎单身公寓有房出租。联系电话:13706288359', 1460016287, 100, 4, 0),
+(5, '洗衣设备出售', '我有一套洗衣设备、有需要的可以和我联系13862885140', 1460016322, 100, 7, 0);
 
 -- --------------------------------------------------------
 
@@ -87,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `le_cate` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_unique` (`name`),
   KEY `pid_index` (`pid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- 转存表中的数据 `le_cate`
@@ -96,8 +100,11 @@ CREATE TABLE IF NOT EXISTS `le_cate` (
 INSERT INTO `le_cate` (`id`, `name`, `pid`, `sort`) VALUES
 (1, '招聘', 0, 3),
 (2, '出租', 0, 1),
-(3, '厂房', 1, 4),
-(4, '办公楼', 1, 2);
+(3, '厂房', 2, 4),
+(4, '办公楼', 2, 2),
+(5, '美工', 1, 100),
+(6, '出售', 0, 100),
+(7, '二手', 6, 100);
 
 -- --------------------------------------------------------
 
@@ -122,4 +129,4 @@ CREATE TABLE IF NOT EXISTS `le_user` (
 --
 
 INSERT INTO `le_user` (`id`, `username`, `password`, `logintime`, `loginip`, `status`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1459671392, '127.0.0.1', 1);
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1459988245, '192.168.1.107', 1);

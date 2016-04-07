@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<css file="__PUBLIC__/home/css/common.css" />
-<css file="__PUBLIC__/home/css/list.css" />
-<js file="__PUBLIC__/lib/jquery.js" />
-<js file="__PUBLIC__/home/js/common.js" />
-</head>
-<body>
-列表页
-</body>
-</html>
+<include file="base/header" />
+
+    <!-- 这里是页面内容区 -->
+    <div class="content">
+      <div class="content-block-title">全部留言</div>
+      <foreach name="art" item="v">
+      <div class="card demo-card-header-pic">
+        <!-- <div style="background-image:url(http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg)" valign="bottom" class="card-header color-white no-border">Title</div> -->
+        <div class="card-content">
+          <div class="card-content-inner">
+            <p>{$v.content}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="color-gray">2016/04/06</a>
+          <a href="#" class="link">图片</a>
+          <a href="#" class="link">{$v.cate}</a>
+        </div>
+      </div>
+      </foreach>
+    </div>
+    
+<include file="base/footer" />
