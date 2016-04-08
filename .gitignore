@@ -9,7 +9,7 @@ test.rar
 
 # ThinkPHP
 Application/Runtime*
-Upload/*
+Uploads/*
 
 
 # Windows image file caches
