@@ -10,7 +10,11 @@ class IndexController extends Controller {
     
     public function getArticle(){
         $cid = I('cid',0,'intval');
-        $cate = M('cate')->where(array('id'=>$cid))->find();
+        if($cid === 0) {
+            $cate['name'] = '无分类';
+        } else {
+            $cate = M('cate')->where(array('id'=>$cid))->find();
+        }
         $this->assign('cate',$cate);
         
         $art = D('article')->getCateArticle($cid);
