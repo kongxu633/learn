@@ -1,7 +1,4 @@
 $(function () {
-
-  var data = [];
-  data['type'] = 'popup';
   
   /*=== Popup ===*/
   $(document).on('click','.link',function () {
