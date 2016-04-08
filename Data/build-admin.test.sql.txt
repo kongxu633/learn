@@ -131,3 +131,18 @@ CREATE TABLE IF NOT EXISTS `le_user` (
 
 INSERT INTO `le_user` (`id`, `username`, `password`, `logintime`, `loginip`, `status`) VALUES
 (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1459988245, '192.168.1.107', 1);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `le_pic`
+--
+
+CREATE TABLE IF NOT EXISTS `le_pic` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `path` varchar(20) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `aid` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `aid_index` (`aid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
