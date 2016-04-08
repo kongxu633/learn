@@ -22,7 +22,14 @@ class ArticleModel extends RelationModel{
             'foreign_key' => 'cid',
             'mapping_fields' => 'name',
             'as_fields' => 'name:cate'
-        )
+        ),
+        
+        'pic' => array(
+            'mapping_type' => self::HAS_MANY,
+            'foreign_key' => 'aid',
+            'mapping_fields' => 'name,path',
+            'as_fields' => 'name:pic'
+        ),
 
     );
     

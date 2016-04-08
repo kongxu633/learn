@@ -11,12 +11,15 @@
           </div>
         </div>
         <div class="card-footer">
-		      <a href="#" class="color-gray">{$v.time|timer=###}</a>
-		      <a href="#" class="link">查看图片</a>
-		      <a href="#" class="color-gray">{$v.cate}</a>
-              <foreach name="pic" item="p">
-              <i>{$p.name}</i>
+              <a href="#" class="color-gray">{$v.time|timer=###}</a>
+              <if condition="count($v['pic']) gt 0">
+              <a href="#" class="link">查看图片</a>
+              </if>
+              <a href="#" class="color-gray">{$v.cate}</a>
+              <foreach name="v.pic" item="p">
+              <i>__ROOT__/Uploads/{$p.path}/{$p.name}</i>
               </foreach>
+              
         </div>
       </div>
       </foreach>
