@@ -76,5 +76,56 @@ class ArticleController extends CommonController {
         } else {
             $this->error('添加失败');
         }
-    }    
+    }
+    
+    public function editArt() {
+        
+        $id = I('id',0,'intval');
+        
+        if(!$id){
+            $this->error('非法操作',U(MODULE_NAME.'/Article/index'));
+        }
+        
+        $cate = M('cate')->order('pid ASC,sort ASC')->select();
+        $cate = Category::tree($cate);
+        $this->assign('cate',$cate);
+        
+        
+        $result = D('article')->relation(true)->find($id);
+        
+        //p($result);
+        
+        $this->assign('result',$result);
+        $this->display();
+    }
+    
+    public function update(){
+        //p(I('post.'));
+        $id = I('id',0,'intval');
+        
+        if(!$id){
+            $this->error('非法操作',U(MODULE_NAME.'/Article/index'));
+        }
+    
+        $data = [
+                'title' => I('title'),
+                'content' => I('content'),
+                'click' => I('click',100,'intval'),
+                'cid' => I('cid',0,'intval'),
+        ];
+    
+        if(isset($_POST['aid'])){
+            foreach ($_POST['aid'] as $v){
+                $data['attr'][] = $v;
+            }
+        }
+        
+        $result = D('article')->where(['id' => $id])->relation(true)->save($data);
+    
+        if($result){
+            $this->success('更新成功',U(MODULE_NAME.'/Article/index'));
+        } else {
+            $this->error('更新失败');
+        }
+    }
 }
