@@ -1,7 +1,7 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-class SystemController extends Controller {
+class SystemController extends CommonController {
     public function verify(){
         $this->display();
     }
