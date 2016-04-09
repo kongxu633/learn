@@ -4,6 +4,22 @@ function p($array){
     dump($array,1,'<pre>',0);
 }
 
+/* 从路径中获取图片名 */
+function parse_pic($path,$part='0',$needle='/')
+{
+    $pos = strrpos($path, $needle);
+    if($pos === false) {
+        return $path;
+    }
+    // part 默认为0 获取半部分
+    // 其他情况都返回后半部分 例: 1 , 后面 , 图片名
+    if($part){
+        return substr($path, $pos + 1);
+    } else {
+        return substr($path, 0 , $pos + 1);
+    }
+}
+
 /* 前端时间格式化 */
 function timer($t){
     $now=time();

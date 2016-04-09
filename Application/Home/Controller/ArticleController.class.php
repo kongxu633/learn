@@ -32,9 +32,8 @@ class ArticleController extends Controller {
     
         if(!empty($pics)){
             foreach ($pics as $v) {
-                $arr = split('/', $v);
-                $arr['path'] = $arr[0];
-                $arr['name'] = $arr[1];
+                $arr['path'] = parse_pic($v);
+                $arr['name'] = parse_pic($v,true);
                 $arr['aid'] = $aid;
                 M('pic')->data($arr)->add();
             }
@@ -47,7 +46,7 @@ class ArticleController extends Controller {
     
         $file_string = I('post.base64_string','','base64_decode');
     
-        $savename = date("Ym").'/'.date("Ymd").'_'.uniqid().'.jpg';//localResizeIMG压缩后的图片都是jpeg格式
+        $savename = date("Ym").'/'.date("d").'_'.uniqid().'.jpg';//localResizeIMG压缩后的图片都是jpeg格式
         $file_path = './Uploads/' . $savename;
     
         $file = new \Think\Storage\Driver\File;
