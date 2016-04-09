@@ -90,6 +90,8 @@ class ArticleController extends CommonController {
         $cate = Category::tree($cate);
         $this->assign('cate',$cate);
         
+        $attr = M('attr')->select();
+        $this->assign('attr',$attr);
         
         $result = D('article')->relation(true)->find($id);
         
@@ -119,10 +121,12 @@ class ArticleController extends CommonController {
                 $data['attr'][] = $v;
             }
         }
+        $db = D('article');
+        $result = $db->where(['id' => $id])->relation(true)->save($data);
         
-        $result = D('article')->where(['id' => $id])->relation(true)->save($data);
+        
     
-        if($result){
+        if(false !==$result ){
             $this->success('更新成功',U(MODULE_NAME.'/Article/index'));
         } else {
             $this->error('更新失败');
