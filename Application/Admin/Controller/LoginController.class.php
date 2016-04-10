@@ -4,12 +4,6 @@ use Think\Controller;
 
 class LoginController extends Controller {
     public function index(){
-        $info = [
-            "u" => 'admin',
-            "p" => 'admin',
-        ];
-        
-        $this->assign('info',$info);
         $this->display();
     }
     
@@ -54,16 +48,15 @@ class LoginController extends Controller {
     }
     public function verify(){
         $config = [
-            'fontSize'=>14,
             'length'=>4,
-            'useNoise'=>false,
+            'useNoise'=>true,
             'useCurve'=>false,
             'codeSet'=>'8'
         ];
         
         $user_config = [
             'codeSet' => C('VERIFY_SEED'),
-            'setKey' => C('VERIFY_KEY')
+            /* 'setKey' => C('VERIFY_KEY') */
         ];
         
         $config = array_merge($config,$user_config);

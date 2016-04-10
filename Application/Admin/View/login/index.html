@@ -22,19 +22,19 @@
 				<tr>
 					<th>管理员帐号:</th>
 					<td>
-						<input type="username" name="username" class="len250" value="{$info.u}"/>
+						<input type="username" name="username" class="len250" />
 					</td>
 				</tr>
 				<tr>
 					<th>密码:</th>
 					<td>
-						<input type="password" class="len250" name="password" value="{$info.p}"/>
+						<input type="password" class="len250" name="password" />
 					</td>
 				</tr>
 				<tr>
 					<th>验证码:</th>
 					<td>
-						<input type="code" class="len250" name="code" value="8888"/> <img src="{:U(MODULE_NAME.'/login/verify')}" id="code"/> <a href="javascript:void(change_code(this));">看不清</a>
+						<input type="code" class="len250" name="code" /><br /><img src="{:U(MODULE_NAME.'/login/verify')}" id="code"/> <a href="javascript:void(change_code(this));">看不清</a>
 					</td>
 				</tr>
 				<tr>
