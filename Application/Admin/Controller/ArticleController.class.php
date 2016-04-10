@@ -102,7 +102,6 @@ class ArticleController extends CommonController {
     }
     
     public function update(){
-        //p(I('post.'));
         $id = I('id',0,'intval');
         
         if(!$id){
@@ -115,17 +114,17 @@ class ArticleController extends CommonController {
                 'click' => I('click',100,'intval'),
                 'cid' => I('cid',0,'intval'),
         ];
-    
+        
+        $data['attr'] = ['0'];
         if(isset($_POST['aid'])){
             foreach ($_POST['aid'] as $v){
                 $data['attr'][] = $v;
             }
         }
+        
         $db = D('article');
         $result = $db->where(['id' => $id])->relation(true)->save($data);
         
-        
-    
         if(false !==$result ){
             $this->success('更新成功',U(MODULE_NAME.'/Article/index'));
         } else {

@@ -30,7 +30,7 @@ option b{font-weight:blod;}
             <td>
                 <foreach name="attr" item="v" key="k">
                     <label style="margin-right:10px;">
-                        <input type="checkbox" name="aid[]" value="{$v.id}" <foreach name="result['attr']" item="vo"><eq name="vo.id" value="$k">checked="checked"</eq></foreach> />&nbsp;{$v.name}
+                        <input type="checkbox" name="aid[]" value="{$v.id}" <foreach name="result['attr']" item="vo"><eq name="vo.id" value="$k+1">checked="checked"</eq></foreach> />&nbsp;{$v.name}
                     </label>
                 </foreach>
             </td>
