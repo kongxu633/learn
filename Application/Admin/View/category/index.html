@@ -27,8 +27,8 @@
 				      <eq name="v.level" value="1">
 				      [<a href="{:U(MODULE_NAME.'/Category/addCate',array('pid'=>$v['id']))}">添加子分类</a>]
 				      </eq>
-				      [<a href="">修改</a>]
-				      [<a href="">删除</a>]
+				      [<a href="{:U(MODULE_NAME.'/Category/editCate',array('id'=>$v['id']))}">修改</a>]
+				      [<a href="{:U(MODULE_NAME.'/Category/deleteCate',array('id'=>$v['id']))}">删除</a>]
 				   </td>
 				</tr>
 		   </foreach>
