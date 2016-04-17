@@ -19,9 +19,11 @@
             <td align="right">排序：</td>
             <td><input type="text" name="sort" value="100" /></td>
         </tr>
+        <eq name="pid" value="0">
         <tr>
-            <td colspan="2" align="center">*注:这里添加的是<font color="red">顶级分类</font>，如需添加子分类，请在分类列表中添加!</td>
+            <td colspan="2" align="center">*注:当前添加的是<font color="red">顶级分类</font>，如需添加子分类，请在分类列表中添加!</td>
         </tr>
+        </eq>
         <tr>
         <input type="hidden" name="pid" value="{$pid}" />
             <td colspan="2" align="center"><input type="submit" value="确认添加" /></td>
