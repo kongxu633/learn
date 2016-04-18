@@ -18,7 +18,9 @@ return array(
     
     
     /* 系统配置文件 */
-    'LOAD_EXT_CONFIG'       => 'verify',
-
-
+    'LOAD_EXT_CONFIG'       =>  'verify',
+    
+    
+    /* rewrite */
+    'URL_MODEL'             =>  2,
 );

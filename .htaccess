@@ -4,5 +4,7 @@
 
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+  #在Fastcgi模式下，php不支持rewrite的目标网址的PATH_INFO的解析
+  #RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+  RewriteRule ^(.*)$ index.php?s=$1 [QSA,PT,L]
 </IfModule>
