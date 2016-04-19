@@ -109,7 +109,10 @@ class ArticleController extends CommonController {
         }
         
         $title = I('title');
-        $result = M('article')->where(['title'=>$title])->find();
+
+        $map['id'] = array('neq',$id);
+        $map['title'] = $title;
+        $result = M('article')->where($map)->find();
 
         if(!empty($result)){
             $this->error('标题重复');
