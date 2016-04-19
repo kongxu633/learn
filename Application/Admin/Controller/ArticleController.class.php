@@ -107,9 +107,16 @@ class ArticleController extends CommonController {
         if(!$id){
             $this->error('非法操作',U(MODULE_NAME.'/Article/index'));
         }
+        
+        $title = I('title');
+        $result = M('article')->where(['title'=>$title])->find();
+
+        if(!empty($result)){
+            $this->error('标题重复');
+        }
     
         $data = [
-                'title' => I('title'),
+                'title' => $title,
                 'content' => I('content'),
                 'click' => I('click',100,'intval'),
                 'cid' => I('cid',0,'intval'),
@@ -126,7 +133,7 @@ class ArticleController extends CommonController {
         $result = $db->where(['id' => $id])->relation(true)->save($data);
         
         if(false !==$result ){
-            $this->success('更新成功',U(MODULE_NAME.'/Article/index'));
+            $this->success('更新成功');
         } else {
             $this->error('更新失败');
         }

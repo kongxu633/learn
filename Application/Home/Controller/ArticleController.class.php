@@ -17,7 +17,7 @@ class ArticleController extends Controller {
         }
         
         $data = [
-            'title' => mb_substr($content , 0 , 10),
+            'title' => mb_substr($content , 0 , 60),
             'content' => $content,
             'time' => time(),
             'click' => mt_rand(100,200),
