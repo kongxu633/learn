@@ -141,4 +141,19 @@ class ArticleController extends CommonController {
             $this->error('更新失败');
         }
     }
+    
+    public function showArt(){
+        $id = I('id',0,'intval');
+        
+        if(!$id){
+            $this->error('非法操作',U(MODULE_NAME.'/Article/index'));
+        }
+        
+        $v = D('article')->relation(true)->find($id);
+        
+        //p($v);
+        
+        $this->assign('v',$v);
+        $this->display();
+    }
 }
