@@ -101,6 +101,28 @@ class ArticleController extends CommonController {
         $this->display();
     }
     
+    public function editTrach(){
+        $id = I('id',0,'intval');
+        
+        if(!$id){
+            $this->error('非法操作',U(MODULE_NAME.'/Article/index'));
+        }
+        
+        $cate = M('cate')->order('pid ASC,sort ASC')->select();
+        $cate = Category::tree($cate);
+        $this->assign('cate',$cate);
+        
+        $attr = M('attr')->select();
+        $this->assign('attr',$attr);
+        
+        $result = D('article')->relation(true)->find($id);
+        
+        //p($result);
+        
+        $this->assign('result',$result);
+        $this->display();
+    }
+    
     public function update(){
         $id = I('id',0,'intval');
         
