@@ -61,7 +61,11 @@ option b{font-weight:blod;}
 	                </label>
                 </if>
                 <input type="submit" value="保存文章">&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="button" value="返回" onclick="history.go(-1);">
+                <if condition="$fromtrach eq 1">
+                    <input type="button" value="返回" onclick="location.href='{:U(MODULE_NAME.'/Article/trach')}';">
+                <else/>
+                    <input type="button" value="返回" onclick="location.href='{:U(MODULE_NAME.'/Article/index')}';">
+                </if>
             </td>
         </tr>
         </table>

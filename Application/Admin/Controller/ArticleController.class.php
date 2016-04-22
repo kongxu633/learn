@@ -129,6 +129,7 @@ class ArticleController extends CommonController {
                 'content' => I('content'),
                 'click' => I('click',100,'intval'),
                 'cid' => I('cid',0,'intval'),
+                'del' => I('del',1,'intval'),
         ];
         
         $data['attr'] = ['0'];
