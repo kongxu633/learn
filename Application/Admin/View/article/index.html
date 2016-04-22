@@ -31,7 +31,7 @@
             <else/>
                 [<a href="{:U(MODULE_NAME.'/Article/toTrach',array('id'=>$v['id'],'del'=>0))}">还原</a>]
                 <!-- [<a href="{:U(MODULE_NAME.'/Article/showArt',array('id'=>$v['id']))}">查看</a>] -->
-                [<a href="{:U(MODULE_NAME.'/Article/editTrach',array('id'=>$v['id']))}">修改</a>]
+                [<a href="{:U(MODULE_NAME.'/Article/editArt',array('id'=>$v['id'],'fromtrach'=>'1'))}">修改</a>]
                 [<a href="{:U(MODULE_NAME.'/Article/delete',array('id'=>$v['id']))}">彻底删除</a>]
             </if>
             </td>

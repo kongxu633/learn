@@ -55,7 +55,13 @@ option b{font-weight:blod;}
         <tr>
             <td colspan="2" align="center">
             	<input type="hidden" name="id" value="{$result.id}" />
-                <input type="submit" value="保存文章">
+            	<if condition="$fromtrach eq 1">
+	            	<label style="margin-right:10px;">
+	                    <input type="checkbox" name="del" value="0" checked="checked" />&nbsp;通过审核
+	                </label>
+                </if>
+                <input type="submit" value="保存文章">&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" value="返回" onclick="history.go(-1);">
             </td>
         </tr>
         </table>
